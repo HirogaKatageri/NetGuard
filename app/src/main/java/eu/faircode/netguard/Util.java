@@ -1,20 +1,20 @@
 package eu.faircode.netguard;
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
@@ -89,7 +89,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class Util {
-    private static final String TAG = "NetGuard.Util";
+    private static final String TAG = "Netguard.Util";
 
     // Roam like at home
     private static final List<String> listEU = Arrays.asList(
@@ -500,7 +500,7 @@ public class Util {
     public static void setTheme(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dark = prefs.getBoolean("dark_theme", false);
-        String theme = prefs.getString("theme", "teal");
+        String theme = prefs.getString("theme", "blue");
         if (theme.equals("teal"))
             context.setTheme(dark ? R.style.AppThemeTealDark : R.style.AppThemeTeal);
         else if (theme.equals("blue"))
@@ -753,15 +753,15 @@ public class Util {
                 06-14 13:02:41.518 19703 19703 E AndroidRuntime:        at eu.faircode.netguard.Util.getGeneralInfo(SourceFile:744)
                 06-14 13:02:41.518 19703 19703 E AndroidRuntime:        at eu.faircode.netguard.ActivitySettings.updateTechnicalInfo(SourceFile:858)
                 06-14 13:02:41.518 19703 19703 E AndroidRuntime:        at eu.faircode.netguard.ActivitySettings.onPostCreate(SourceFile:425)
-                06-14 13:02:41.520 19703 19703 W NetGuard.App: java.lang.SecurityException: getDataNetworkTypeForSubscriber
-                06-14 13:02:41.520 19703 19703 W NetGuard.App: java.lang.SecurityException: getDataNetworkTypeForSubscriber
-                06-14 13:02:41.520 19703 19703 W NetGuard.App:  at android.os.Parcel.createExceptionOrNull(Parcel.java:2373)
-                06-14 13:02:41.520 19703 19703 W NetGuard.App:  at android.os.Parcel.createException(Parcel.java:2357)
-                06-14 13:02:41.520 19703 19703 W NetGuard.App:  at android.os.Parcel.readException(Parcel.java:2340)
-                06-14 13:02:41.520 19703 19703 W NetGuard.App:  at android.os.Parcel.readException(Parcel.java:2282)
-                06-14 13:02:41.520 19703 19703 W NetGuard.App:  at com.android.internal.telephony.ITelephony$Stub$Proxy.getNetworkTypeForSubscriber(ITelephony.java:8711)
-                06-14 13:02:41.520 19703 19703 W NetGuard.App:  at android.telephony.TelephonyManager.getNetworkType(TelephonyManager.java:2945)
-                06-14 13:02:41.520 19703 19703 W NetGuard.App:  at android.telephony.TelephonyManager.getNetworkType(TelephonyManager.java:2909)
+                06-14 13:02:41.520 19703 19703 W Netguard.App: java.lang.SecurityException: getDataNetworkTypeForSubscriber
+                06-14 13:02:41.520 19703 19703 W Netguard.App: java.lang.SecurityException: getDataNetworkTypeForSubscriber
+                06-14 13:02:41.520 19703 19703 W Netguard.App:  at android.os.Parcel.createExceptionOrNull(Parcel.java:2373)
+                06-14 13:02:41.520 19703 19703 W Netguard.App:  at android.os.Parcel.createException(Parcel.java:2357)
+                06-14 13:02:41.520 19703 19703 W Netguard.App:  at android.os.Parcel.readException(Parcel.java:2340)
+                06-14 13:02:41.520 19703 19703 W Netguard.App:  at android.os.Parcel.readException(Parcel.java:2282)
+                06-14 13:02:41.520 19703 19703 W Netguard.App:  at com.android.internal.telephony.ITelephony$Stub$Proxy.getNetworkTypeForSubscriber(ITelephony.java:8711)
+                06-14 13:02:41.520 19703 19703 W Netguard.App:  at android.telephony.TelephonyManager.getNetworkType(TelephonyManager.java:2945)
+                06-14 13:02:41.520 19703 19703 W Netguard.App:  at android.telephony.TelephonyManager.getNetworkType(TelephonyManager.java:2909)
              */
         }
 
@@ -854,7 +854,7 @@ public class Util {
 
                 // Get version info
                 String version = getSelfVersionName(context);
-                sb.append(String.format("NetGuard: %s/%d\r\n", version, getSelfVersionCode(context)));
+                sb.append(String.format("Netguard: %s/%d\r\n", version, getSelfVersionCode(context)));
                 sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
                 sb.append("\r\n");
 
@@ -960,7 +960,7 @@ public class Util {
                 Intent sendEmail = new Intent(Intent.ACTION_SEND);
                 sendEmail.setType("message/rfc822");
                 sendEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{"marcel+netguard@faircode.eu"});
-                sendEmail.putExtra(Intent.EXTRA_SUBJECT, "NetGuard " + version + " logcat");
+                sendEmail.putExtra(Intent.EXTRA_SUBJECT, "Netguard " + version + " logcat");
                 sendEmail.putExtra(Intent.EXTRA_TEXT, sb.toString());
                 sendEmail.putExtra(Intent.EXTRA_STREAM, uri);
                 return sendEmail;

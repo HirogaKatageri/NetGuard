@@ -2,6 +2,9 @@
 <resources>
     <!-- https://www.materialpalette.com/teal/deep-orange -->
 
+    <color name="colorRazerPrimary">#00BE00</color>
+    <color name="colorRazerPrimaryDark">#00A500</color>
+
     <color name="colorTealPrimary">#009688</color>
     <color name="colorTealPrimaryDark">#00796B</color>
     <color name="colorTealAccent">#FF5722</color>
@@ -42,4 +45,5 @@
     <color name="colorReceive">#0000FF</color>
 
     <color name="colorGrayed">#AAAAAA</color>
+    <color name="colorLightGrayed">#EEEEEE</color>
 </resources>

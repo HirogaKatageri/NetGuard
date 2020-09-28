@@ -1,20 +1,20 @@
 package eu.faircode.netguard;
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
@@ -42,13 +42,15 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 import androidx.preference.PreferenceManager;
 
+import com.bumptech.glide.Glide;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class AdapterLog extends CursorAdapter {
-    private static String TAG = "NetGuard.Log";
+    private static String TAG = "Netguard.Log";
 
     private boolean resolve;
     private boolean organization;
@@ -220,7 +222,7 @@ public class AdapterLog extends CursorAdapter {
                 ivIcon.setImageResource(android.R.drawable.sym_def_app_icon);
             else {
                 Uri uri = Uri.parse("android.resource://" + info.packageName + "/" + info.icon);
-                GlideApp.with(context)
+                Glide.with(context)
                         .load(uri)
                         //.diskCacheStrategy(DiskCacheStrategy.NONE)
                         //.skipMemoryCache(true)

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard root gerektirmeden internet erişimini engellemek için basit ve gelişmiş yöntemler kullanır. Wi-Fi yada mobil bağlantı ürerinden uygulamalar ve adresler için internet erişimini tek tek engelleyebilirsiniz.</string>
-    <string name="app_android">NetGuard, Android 5.1 veya üzerini gerektirir</string>
-    <string name="app_xposed">Xposed, NetGuard\'ın Google Play Store\'dan kaldırılmasına neden olabilecek çok fazla çökmeye sebebiyet verir, bu nedenle NetGuard, Xposed yüklenirken desteklenmez</string>
+    <string name="app_description">Wifi Booster root gerektirmeden internet erişimini engellemek için basit ve gelişmiş yöntemler kullanır. Wi-Fi yada mobil bağlantı ürerinden uygulamalar ve adresler için internet erişimini tek tek engelleyebilirsiniz.</string>
+    <string name="app_android">Wifi Booster, Android 5.1 veya üzerini gerektirir</string>
+    <string name="app_xposed">Xposed, Wifi Booster\'ın Google Play Store\'dan kaldırılmasına neden olabilecek çok fazla çökmeye sebebiyet verir, bu nedenle Wifi Booster, Xposed yüklenirken desteklenmez</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Gizlilik Politikası</a></string>
-    <string name="app_first">NetGuard\'ı geliştirmek ve test etmek için büyük özen gösterilmiştir, ancak NetGuard\'ın her cihazda doğru şekilde çalışacağını garanti etmek imkansızdır.</string>
+    <string name="app_first">Wifi Booster\'ı geliştirmek ve test etmek için büyük özen gösterilmiştir, ancak Wifi Booster\'ın her cihazda doğru şekilde çalışacağını garanti etmek imkansızdır.</string>
     <string name="app_agree">Kabul ediyorum</string>
     <string name="app_disagree">Kabul etmiyorum</string>
-    <string name="app_support">NetGuard\'ın yardımınıza ihtiyacı var. Projeyi devam ettirmek için pro özellikleri satın almak için dokunun.</string>
+    <string name="app_support">Wifi Booster\'ın yardımınıza ihtiyacı var. Projeyi devam ettirmek için pro özellikleri satın almak için dokunun.</string>
     <string name="channel_foreground">Çalışan servisler</string>
     <string name="channel_notify">Genel bildirimler</string>
     <string name="channel_access">Bildirimlere erişim</string>
@@ -124,13 +124,13 @@
     <string name="setting_technical_networks">Ağlar</string>
     <string name="setting_technical_subscription">Abonelikler</string>
     <string name="summary_install">Yeni yüklenen uygulamaları doğrudan yapılandırmak için durum çubuğunda uyarı göster (pro özelliği)</string>
-    <string name="summary_auto">Widget kullanarak devre dışı bıraktıktan sonra, NetGuardı otomatik olarak tekrar etkinleştirmek için bir süre girin (bu seçeneği devre dışı bırakmak için sıfır girin)</string>
+    <string name="summary_auto">Widget kullanarak devre dışı bıraktıktan sonra, Wifi Boosterı otomatik olarak tekrar etkinleştirmek için bir süre girin (bu seçeneği devre dışı bırakmak için sıfır girin)</string>
     <string name="summary_delay">Seçilen süre sonuna kadar aktif kuralları uygulayıp ekranı kapat (bu seçeneği devre dışı bırakmak için sıfır girin)</string>
     <string name="summary_update">Yeni sürümler için GitHub üzerinden günde iki defa kontrol et</string>
     <string name="summary_tethering">Android sürümüne bağlı olarak, internet paylaşımı çalışabilir yada çalışmayabilir. Paylaşılan internet trafiği filtrelenemez.</string>
     <string name="summary_subnet">Alt ağ iletimini etkinleştir; Wi-Fi araması etkinleştirilebilir ama ayrıca Androind\'de ki hatalar tetiklenebilir ve pil kullanımı artabilir</string>
     <string name="summary_lan">Uygulamaların 10.0.0.0/8, 172.16.0.0/12 ve 192.168.0.0/16 gibi yerel ağ adreslerine bağlanmasına izin ver</string>
-    <string name="summary_ip6">IP sürüm 6 trafiğini NetGuard\'a yönlendir böylece seçime izin verilebilir veya engellenebilir</string>
+    <string name="summary_ip6">IP sürüm 6 trafiğini Wifi Booster\'a yönlendir böylece seçime izin verilebilir veya engellenebilir</string>
     <string name="summary_wifi_home">Sadece seçilen ağ için Wi-Fi kurallarını uygula (diğer Wi-Fi ağları için mobil ağ kurallarını uygula)</string>
     <string name="summary_metered">Wi-Fi üzerinden paylaşılan veri için mobil ağ kurallarını uygula</string>
     <string name="summary_metered_2g">2G bağlantısı için Wi-Fi kurallarını uygula</string>
@@ -138,7 +138,7 @@
     <string name="summary_metered_4g">4G bağlantısı için Wi-Fi kurallarını uygula</string>
     <string name="summary_national_roaming">SIM kart yurtdışında kullanılmıyorsa dolaşım kurallarını etkinleştirm</string>
     <string name="summary_eu_roaming">SIM ve mobil ağ ülkesi AB\'da olduğu zaman gezici kurallarını uygulama (gezinme evde olduğu gibi)</string>
-    <string name="summary_call">Gelen ve giden telefon aramasında NetGuard\'ı devre dışı bırak. Bu, IP/Wi-Fi arama problemleri etrafında çalışmak için kullanılabilir.</string>
+    <string name="summary_call">Gelen ve giden telefon aramasında Wifi Booster\'ı devre dışı bırak. Bu, IP/Wi-Fi arama problemleri etrafında çalışmak için kullanılabilir.</string>
     <string name="summary_system">Sistem uygulamaları kuralları tanımlayın (uzman için)</string>
     <string name="summary_log_app">Uygulamaların internet erişimini kaydetmek ekstra batarya kullanımına neden olabilir.</string>
     <string name="summary_access">Bir uygulama, yeni bir internet adres erişimi için girişimde bulunduğunda bir durum çubuğu bildirimi göster (filtre devre dışı kaldığı zaman yalnızca engellenmiş internet erişim girişimlerini bildirecek)</string>
@@ -148,7 +148,7 @@
     <string name="summary_rcode">Varsayılan değer 3(NXDOMAIN), yani \'mevcut olmayan alan adı\'.</string>
     <string name="summary_validate">443 numaralı porttaki (https) internet bağlantısını doğrulamak için kullanılan alan adı.</string>
     <string name="summary_socks5_enabled">Sadece TCP trafiği proxy sunucusuna gönderecek</string>
-    <string name="summary_watchdog">NetGuard\'ın hala çalışıp çalışmadığını düzenli olarak kontrol edin (bu seçeneği devre dışı bırakmak için sıfır girin). Bu ekstra pil kullanımıyla sonuçlanabilir.</string>
+    <string name="summary_watchdog">Wifi Booster\'ın hala çalışıp çalışmadığını düzenli olarak kontrol edin (bu seçeneği devre dışı bırakmak için sıfır girin). Bu ekstra pil kullanımıyla sonuçlanabilir.</string>
     <string name="summary_stats">İnternet hız grafiği bildirimi göster</string>
     <string-array name="default_wifi_home"></string-array>
     <string name="msg_sure">Emin misiniz?</string>
@@ -156,20 +156,20 @@
     <string name="msg_packages">%1$d izin verilen, %2$d engellenen</string>
     <string name="msg_hosts">%1$d izin verilen, %2$d engellenen, %3$d hosts</string>
     <string name="msg_waiting">Aktivite bekleniyor</string>
-    <string name="msg_disabled">NetGuard devre dışı, NetGuard etkinleştirmek için yukarıdaki anahtarını kullanın.</string>
-    <string name="msg_revoked">NetGuard, büyük olasılıkla başka bir VPN tabanlı uygulama kullanılarak devre dışı bırakıldı</string>
+    <string name="msg_disabled">Wifi Booster devre dışı, Wifi Booster etkinleştirmek için yukarıdaki anahtarını kullanın.</string>
+    <string name="msg_revoked">Wifi Booster, büyük olasılıkla başka bir VPN tabanlı uygulama kullanılarak devre dışı bırakıldı</string>
     <string name="msg_installed">\'%1$s\' yüklü</string>
     <string name="msg_installed_n">Yüklendi</string>
     <string name="msg_access">%1$s internet erişimi deneniyor</string>
     <string name="msg_access_n">İnternet erişimi denendi</string>
     <string name="msg_completed">Eylem tamamlandı</string>
-    <string name="msg_vpn">NetGuard root gerektirmeden internet trafiğini filtreleyebilmek için yerel bir VPN sunucusu çalıştırır.
+    <string name="msg_vpn">Wifi Booster root gerektirmeden internet trafiğini filtreleyebilmek için yerel bir VPN sunucusu çalıştırır.
 Bu nedenle, bir sonraki iletişim kutusunda VPN bağlantı isteğine onay vermeniz gerekir.
 İnternet trafiğiniz uzak bir VPN sunucusuna gönderilmiyor.</string>
-    <string name="msg_autostart">NetGuard, Android sürümünüzde ki bir hata nedeni ile başlanğıçta otomatik olarak başlatılamadı</string>
+    <string name="msg_autostart">Wifi Booster, Android sürümünüzde ki bir hata nedeni ile başlanğıçta otomatik olarak başlatılamadı</string>
     <string name="msg_error">Beklenmeyen hata oluştu: \'%s\'</string>
     <string name="msg_start_failed">Android şu anda VPN hizmeti başlatmayı reddetti. Muhtemelen bunun sebebi sizin Android sürümünüzde ki bir hatadır.</string>
-    <string name="msg_try">NetGuard\'ı deneyin</string>
+    <string name="msg_try">Wifi Booster\'ı deneyin</string>
     <string name="msg_terms">Bağış yaparak <a href="http://www.netguard.me/#terms"> şartlar &amp; koşulları</a> kabul etmiş sayılırsınız</string>
     <string name="msg_dimming">Bir sonraki iletişim kutusunda TAMAM tuşuna basamıyorsanız muhtemelen buna başka bir uygulama neden oluyordur.</string>
     <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/gün</string>
@@ -179,10 +179,10 @@ Bu nedenle, bir sonraki iletişim kutusunda VPN bağlantı isteğine onay vermen
     <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
     <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">NetGuard için batarya optimizasyonu devre dışı bırakılarak tutarlı sonuçlar elde edilebilir
-\n\nBir sonraki iletişim kutusunda, \"Tüm uygulamaların\" arasından NetGuard için \"Optimize etme\" seçeneği onaylanmalı.</string>
-    <string name="msg_datasaving">Tutarlı sonuç için, NetGuard \n\nın sonraki diyaloğu için Androin veri kaydetme seçenekleri devre dışı olmalı, \"Arkaplan verisi\" ve \"Sınırsız veri kullanımı\" seçenekleri etkinleştirilmeli</string>
-    <string name="msg_filter">NetGuard filtreleme kullanımı Android için veri ve güç kullanımında karmaşaya neden oluyormuş gibi görünebilir. Bazı durumlarda görünmeklede kalmaz</string>
+    <string name="msg_doze">Wifi Booster için batarya optimizasyonu devre dışı bırakılarak tutarlı sonuçlar elde edilebilir
+\n\nBir sonraki iletişim kutusunda, \"Tüm uygulamaların\" arasından Wifi Booster için \"Optimize etme\" seçeneği onaylanmalı.</string>
+    <string name="msg_datasaving">Tutarlı sonuç için, Wifi Booster \n\nın sonraki diyaloğu için Androin veri kaydetme seçenekleri devre dışı olmalı, \"Arkaplan verisi\" ve \"Sınırsız veri kullanımı\" seçenekleri etkinleştirilmeli</string>
+    <string name="msg_filter">Wifi Booster filtreleme kullanımı Android için veri ve güç kullanımında karmaşaya neden oluyormuş gibi görünebilir. Bazı durumlarda görünmeklede kalmaz</string>
     <string name="msg_filter4">Android 4 sorgularının filtrelenmesi etkinleştirildi</string>
     <string name="msg_log_disabled">Trafik günlüğünü etkinleştirmek için yukardaki anahtarı kullanın. Trafik günlüğünü etkinleştirmek ekstra batarya kullanımına neden olabilir.</string>
     <string name="msg_clear_rules">Bu, kuralları ve koşulları varsayılan değerle sıfırlar</string>
@@ -195,20 +195,20 @@ Bu nedenle, bir sonraki iletişim kutusunda VPN bağlantı isteğine onay vermen
     <string name="msg_stop_forward">Yönlendirmeyi durdur %1$s port %2$d?</string>
     <string name="msg_metered">Bağlantı veri kullanımı</string>
     <string name="msg_inactive">İnternet bağlantısı aktif değil</string>
-    <string name="msg_queue">NetGuard meşgul</string>
+    <string name="msg_queue">Wifi Booster meşgul</string>
     <string name="msg_update">Güncelleme hazır, indirmek için dokunun</string>
     <string name="msg_usage">Bir uygulamanın yanındaki simgelere dokunarak Wi-Fi veya mobil internet erişimine izin verebilir (yeşilimsi) ya da reddedebilirsin (kırmızımsı)</string>
-    <string name="msg_fairemail">Gizliliğinizi korumak için NetGuard yüklediyseniz, ilginizi çekebilir <a href="https://email.faircode.eu/">Açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail </a> de</string>
+    <string name="msg_fairemail">Gizliliğinizi korumak için Wifi Booster yüklediyseniz, ilginizi çekebilir <a href="https://email.faircode.eu/">Açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail </a> de</string>
     <string name="msg_whitelist">Varsayılan olarak, Internet erişim verilir Bu, ayarlarından değiştirilebilir</string>
     <string name="msg_push">Gelen (basma) mesajlar çoğunlukla internet erişimi varsayılan olarak izin verilen sistem bileşeni Play hizmetleri tarafından işlenir</string>
     <string name="msg_system">Sistem uygulamalarını yönet gelişmiş seçenekler de etkin olabilir</string>
     <string name="msg_issue">Lütfen sorunu açıklayan ve tarihi girin:</string>
     <string name="msg_vpn_cancelled">VPN bağlantısı iptal edildi\nBaşka bir VPN\'i her zaman açık bir VPN olarak ayarladınız mı?</string>
-    <string name="msg_on">Cihazınızın gücünü NetGuard\'ı etkin duruma getirerek kapatın, cihazınızın gücü açıldığında NetGuard otomatik olarak başlayacak</string>
+    <string name="msg_on">Cihazınızın gücünü Wifi Booster\'ı etkin duruma getirerek kapatın, cihazınızın gücü açıldığında Wifi Booster otomatik olarak başlayacak</string>
     <string name="msg_unavailable">Bu özellik, bu Android sürümünde mevcut değil</string>
     <string name="msg_always_on">Diğer VPN, Daima-açık VPN olarak ayarlanır</string>
-    <string name="msg_always_on_lockdown">NetGuard\'ı filtreleme modunda kullanmak için Android VPN ayarlarından \"VPN olmadan bağlantıları engelle\" özelliğini kapatın</string>
-    <string name="msg_private_dns">NetGuard\'ı filtreleme modunda kullanmak için Android ağ ayarlarındaki \"Özel DNS\" özelliğini kapatın</string>
+    <string name="msg_always_on_lockdown">Wifi Booster\'ı filtreleme modunda kullanmak için Android VPN ayarlarından \"VPN olmadan bağlantıları engelle\" özelliğini kapatın</string>
+    <string name="msg_private_dns">Wifi Booster\'ı filtreleme modunda kullanmak için Android ağ ayarlarındaki \"Özel DNS\" özelliğini kapatın</string>
     <string name="title_lockdown_enabled">Trafik kilitlendi</string>
     <string name="title_unmetered_allowed">İzin verilmiş hesaplanamayan veri kullanımı</string>
     <string name="title_unmetered_blocked">Engellenmiş hesaplanamayan veri kullanımı</string>

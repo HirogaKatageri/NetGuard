@@ -1,20 +1,20 @@
 package eu.faircode.netguard;
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
@@ -59,7 +59,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ActivityLog extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private static final String TAG = "NetGuard.Log";
+    private static final String TAG = "Netguard.Log";
 
     private boolean running = false;
     private ListView lvLog;
@@ -240,53 +240,45 @@ public class ActivityLog extends AppCompatActivity implements SharedPreferences.
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        switch (menuItem.getItemId()) {
-                            case R.id.menu_application: {
+                        int itemId = menuItem.getItemId();
+                        if (itemId == R.id.menu_application) {
+                            Intent main = new Intent(ActivityLog.this, ActivityMain.class);
+                            main.putExtra(ActivityMain.EXTRA_SEARCH, Integer.toString(uid));
+                            startActivity(main);
+                            return true;
+                        } else if (itemId == R.id.menu_whois) {
+                            startActivity(lookupIP);
+                            return true;
+                        } else if (itemId == R.id.menu_port) {
+                            startActivity(lookupPort);
+                            return true;
+                        } else if (itemId == R.id.menu_allow) {
+                            if (IAB.isPurchased(ActivityPro.SKU_FILTER, ActivityLog.this)) {
+                                DatabaseHelper.getInstance(ActivityLog.this).updateAccess(packet, dname, 0);
+                                ServiceSinkhole.reload("allow host", ActivityLog.this, false);
                                 Intent main = new Intent(ActivityLog.this, ActivityMain.class);
                                 main.putExtra(ActivityMain.EXTRA_SEARCH, Integer.toString(uid));
                                 startActivity(main);
-                                return true;
-                            }
-
-                            case R.id.menu_whois:
-                                startActivity(lookupIP);
-                                return true;
-
-                            case R.id.menu_port:
-                                startActivity(lookupPort);
-                                return true;
-
-                            case R.id.menu_allow:
-                                if (IAB.isPurchased(ActivityPro.SKU_FILTER, ActivityLog.this)) {
-                                    DatabaseHelper.getInstance(ActivityLog.this).updateAccess(packet, dname, 0);
-                                    ServiceSinkhole.reload("allow host", ActivityLog.this, false);
-                                    Intent main = new Intent(ActivityLog.this, ActivityMain.class);
-                                    main.putExtra(ActivityMain.EXTRA_SEARCH, Integer.toString(uid));
-                                    startActivity(main);
-                                } else
-                                    startActivity(new Intent(ActivityLog.this, ActivityPro.class));
-                                return true;
-
-                            case R.id.menu_block:
-                                if (IAB.isPurchased(ActivityPro.SKU_FILTER, ActivityLog.this)) {
-                                    DatabaseHelper.getInstance(ActivityLog.this).updateAccess(packet, dname, 1);
-                                    ServiceSinkhole.reload("block host", ActivityLog.this, false);
-                                    Intent main = new Intent(ActivityLog.this, ActivityMain.class);
-                                    main.putExtra(ActivityMain.EXTRA_SEARCH, Integer.toString(uid));
-                                    startActivity(main);
-                                } else
-                                    startActivity(new Intent(ActivityLog.this, ActivityPro.class));
-                                return true;
-
-                            case R.id.menu_copy:
-                                ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                                ClipData clip = ClipData.newPlainText("netguard", dname == null ? daddr : dname);
-                                clipboard.setPrimaryClip(clip);
-                                return true;
-
-                            default:
-                                return false;
+                            } else
+                                startActivity(new Intent(ActivityLog.this, ActivityPro.class));
+                            return true;
+                        } else if (itemId == R.id.menu_block) {
+                            if (IAB.isPurchased(ActivityPro.SKU_FILTER, ActivityLog.this)) {
+                                DatabaseHelper.getInstance(ActivityLog.this).updateAccess(packet, dname, 1);
+                                ServiceSinkhole.reload("block host", ActivityLog.this, false);
+                                Intent main = new Intent(ActivityLog.this, ActivityMain.class);
+                                main.putExtra(ActivityMain.EXTRA_SEARCH, Integer.toString(uid));
+                                startActivity(main);
+                            } else
+                                startActivity(new Intent(ActivityLog.this, ActivityPro.class));
+                            return true;
+                        } else if (itemId == R.id.menu_copy) {
+                            ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                            ClipData clip = ClipData.newPlainText("netguard", dname == null ? daddr : dname);
+                            clipboard.setPrimaryClip(clip);
+                            return true;
                         }
+                        return false;
                     }
                 });
 
@@ -406,115 +398,100 @@ public class ActivityLog extends AppCompatActivity implements SharedPreferences.
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final File pcap_file = new File(getDir("data", MODE_PRIVATE), "netguard.pcap");
 
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Log.i(TAG, "Up");
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-
-            case R.id.menu_protocol_udp:
-                item.setChecked(!item.isChecked());
-                prefs.edit().putBoolean("proto_udp", item.isChecked()).apply();
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            Log.i(TAG, "Up");
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        } else if (itemId == R.id.menu_protocol_udp) {
+            item.setChecked(!item.isChecked());
+            prefs.edit().putBoolean("proto_udp", item.isChecked()).apply();
+            updateAdapter();
+            return true;
+        } else if (itemId == R.id.menu_protocol_tcp) {
+            item.setChecked(!item.isChecked());
+            prefs.edit().putBoolean("proto_tcp", item.isChecked()).apply();
+            updateAdapter();
+            return true;
+        } else if (itemId == R.id.menu_protocol_other) {
+            item.setChecked(!item.isChecked());
+            prefs.edit().putBoolean("proto_other", item.isChecked()).apply();
+            updateAdapter();
+            return true;
+        } else if (itemId == R.id.menu_traffic_allowed) {
+            item.setChecked(!item.isChecked());
+            prefs.edit().putBoolean("traffic_allowed", item.isChecked()).apply();
+            updateAdapter();
+            return true;
+        } else if (itemId == R.id.menu_traffic_blocked) {
+            item.setChecked(!item.isChecked());
+            prefs.edit().putBoolean("traffic_blocked", item.isChecked()).apply();
+            updateAdapter();
+            return true;
+        } else if (itemId == R.id.menu_log_live) {
+            item.setChecked(!item.isChecked());
+            live = item.isChecked();
+            if (live) {
+                DatabaseHelper.getInstance(this).addLogChangedListener(listener);
                 updateAdapter();
-                return true;
-
-            case R.id.menu_protocol_tcp:
-                item.setChecked(!item.isChecked());
-                prefs.edit().putBoolean("proto_tcp", item.isChecked()).apply();
-                updateAdapter();
-                return true;
-
-            case R.id.menu_protocol_other:
-                item.setChecked(!item.isChecked());
-                prefs.edit().putBoolean("proto_other", item.isChecked()).apply();
-                updateAdapter();
-                return true;
-
-            case R.id.menu_traffic_allowed:
-                item.setChecked(!item.isChecked());
-                prefs.edit().putBoolean("traffic_allowed", item.isChecked()).apply();
-                updateAdapter();
-                return true;
-
-            case R.id.menu_traffic_blocked:
-                item.setChecked(!item.isChecked());
-                prefs.edit().putBoolean("traffic_blocked", item.isChecked()).apply();
-                updateAdapter();
-                return true;
-
-            case R.id.menu_log_live:
-                item.setChecked(!item.isChecked());
-                live = item.isChecked();
-                if (live) {
-                    DatabaseHelper.getInstance(this).addLogChangedListener(listener);
-                    updateAdapter();
-                } else
-                    DatabaseHelper.getInstance(this).removeLogChangedListener(listener);
-                return true;
-
-            case R.id.menu_refresh:
-                updateAdapter();
-                return true;
-
-            case R.id.menu_log_resolve:
-                item.setChecked(!item.isChecked());
-                prefs.edit().putBoolean("resolve", item.isChecked()).apply();
-                adapter.setResolve(item.isChecked());
-                adapter.notifyDataSetChanged();
-                return true;
-
-            case R.id.menu_log_organization:
-                item.setChecked(!item.isChecked());
-                prefs.edit().putBoolean("organization", item.isChecked()).apply();
-                adapter.setOrganization(item.isChecked());
-                adapter.notifyDataSetChanged();
-                return true;
-
-            case R.id.menu_pcap_enabled:
-                item.setChecked(!item.isChecked());
-                prefs.edit().putBoolean("pcap", item.isChecked()).apply();
-                ServiceSinkhole.setPcap(item.isChecked(), ActivityLog.this);
-                return true;
-
-            case R.id.menu_pcap_export:
-                startActivityForResult(getIntentPCAPDocument(), REQUEST_PCAP);
-                return true;
-
-            case R.id.menu_log_clear:
-                new AsyncTask<Object, Object, Object>() {
-                    @Override
-                    protected Object doInBackground(Object... objects) {
-                        DatabaseHelper.getInstance(ActivityLog.this).clearLog(-1);
-                        if (prefs.getBoolean("pcap", false)) {
-                            ServiceSinkhole.setPcap(false, ActivityLog.this);
-                            if (pcap_file.exists() && !pcap_file.delete())
-                                Log.w(TAG, "Delete PCAP failed");
-                            ServiceSinkhole.setPcap(true, ActivityLog.this);
-                        } else {
-                            if (pcap_file.exists() && !pcap_file.delete())
-                                Log.w(TAG, "Delete PCAP failed");
-                        }
-                        return null;
+            } else
+                DatabaseHelper.getInstance(this).removeLogChangedListener(listener);
+            return true;
+        } else if (itemId == R.id.menu_refresh) {
+            updateAdapter();
+            return true;
+        } else if (itemId == R.id.menu_log_resolve) {
+            item.setChecked(!item.isChecked());
+            prefs.edit().putBoolean("resolve", item.isChecked()).apply();
+            adapter.setResolve(item.isChecked());
+            adapter.notifyDataSetChanged();
+            return true;
+        } else if (itemId == R.id.menu_log_organization) {
+            item.setChecked(!item.isChecked());
+            prefs.edit().putBoolean("organization", item.isChecked()).apply();
+            adapter.setOrganization(item.isChecked());
+            adapter.notifyDataSetChanged();
+            return true;
+        } else if (itemId == R.id.menu_pcap_enabled) {
+            item.setChecked(!item.isChecked());
+            prefs.edit().putBoolean("pcap", item.isChecked()).apply();
+            ServiceSinkhole.setPcap(item.isChecked(), ActivityLog.this);
+            return true;
+        } else if (itemId == R.id.menu_pcap_export) {
+            startActivityForResult(getIntentPCAPDocument(), REQUEST_PCAP);
+            return true;
+        } else if (itemId == R.id.menu_log_clear) {
+            new AsyncTask<Object, Object, Object>() {
+                @Override
+                protected Object doInBackground(Object... objects) {
+                    DatabaseHelper.getInstance(ActivityLog.this).clearLog(-1);
+                    if (prefs.getBoolean("pcap", false)) {
+                        ServiceSinkhole.setPcap(false, ActivityLog.this);
+                        if (pcap_file.exists() && !pcap_file.delete())
+                            Log.w(TAG, "Delete PCAP failed");
+                        ServiceSinkhole.setPcap(true, ActivityLog.this);
+                    } else {
+                        if (pcap_file.exists() && !pcap_file.delete())
+                            Log.w(TAG, "Delete PCAP failed");
                     }
+                    return null;
+                }
 
-                    @Override
-                    protected void onPostExecute(Object result) {
-                        if (running)
-                            updateAdapter();
-                    }
-                }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                return true;
-
-            case R.id.menu_log_support:
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://github.com/M66B/NetGuard/blob/master/FAQ.md#user-content-faq27"));
-                if (getPackageManager().resolveActivity(intent, 0) != null)
-                    startActivity(intent);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
+                @Override
+                protected void onPostExecute(Object result) {
+                    if (running)
+                        updateAdapter();
+                }
+            }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            return true;
+        } else if (itemId == R.id.menu_log_support) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://github.com/M66B/NetGuard/blob/master/FAQ.md#user-content-faq27"));
+            if (getPackageManager().resolveActivity(intent, 0) != null)
+                startActivity(intent);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void updateAdapter() {

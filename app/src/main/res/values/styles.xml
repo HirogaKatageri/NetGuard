@@ -42,6 +42,14 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="AppThemeRazer" parent="BaseThemeDark">
+        <item name="colorPrimary">@color/colorRazerPrimary</item>
+        <item name="colorPrimaryDark">@color/colorRazerPrimaryDark</item>
+        <item name="colorAccent">@color/colorGreenOff</item>
+        <item name="colorOn">@color/colorRazerPrimary</item>
+        <item name="colorOff">@color/colorGreenOff</item>
+    </style>
+
     <style name="AppThemeTeal" parent="BaseThemeDark">
         <item name="colorPrimary">@color/colorTealPrimary</item>
         <item name="colorPrimaryDark">@color/colorTealPrimaryDark</item>

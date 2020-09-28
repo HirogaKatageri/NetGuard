@@ -1,38 +1,32 @@
 package eu.faircode.netguard;
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.annotation.TargetApi;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -40,28 +34,19 @@ import android.text.style.ImageSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.CursorAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -69,16 +54,16 @@ import androidx.core.widget.CompoundButtonCompat;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> implements Filterable {
-    private static final String TAG = "NetGuard.Adapter";
+    private static final String TAG = "Netguard.Adapter";
 
     private View anchor;
     private LayoutInflater inflater;
@@ -131,45 +116,6 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> im
         public ImageView ivScreenOther;
         public TextView tvRoaming;
 
-        public TextView tvRemarkMessaging;
-        public TextView tvRemarkDownload;
-
-        public LinearLayout llConfiguration;
-        public TextView tvUid;
-        public TextView tvPackage;
-        public TextView tvVersion;
-        public TextView tvInternet;
-        public TextView tvDisabled;
-
-        public Button btnRelated;
-        public ImageButton ibSettings;
-        public ImageButton ibLaunch;
-
-        public CheckBox cbApply;
-
-        public LinearLayout llScreenWifi;
-        public ImageView ivWifiLegend;
-        public CheckBox cbScreenWifi;
-
-        public LinearLayout llScreenOther;
-        public ImageView ivOtherLegend;
-        public CheckBox cbScreenOther;
-
-        public CheckBox cbRoaming;
-
-        public CheckBox cbLockdown;
-        public ImageView ivLockdownLegend;
-
-        public ImageButton btnClear;
-
-        public LinearLayout llFilter;
-        public ImageView ivLive;
-        public TextView tvLogging;
-        public Button btnLogging;
-        public ListView lvAccess;
-        public ImageButton btnClearAccess;
-        public CheckBox cbNotify;
-
         public ViewHolder(View itemView) {
             super(itemView);
             view = itemView;
@@ -190,45 +136,6 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> im
             cbOther = itemView.findViewById(R.id.cbOther);
             ivScreenOther = itemView.findViewById(R.id.ivScreenOther);
             tvRoaming = itemView.findViewById(R.id.tvRoaming);
-
-            tvRemarkMessaging = itemView.findViewById(R.id.tvRemarkMessaging);
-            tvRemarkDownload = itemView.findViewById(R.id.tvRemarkDownload);
-
-            llConfiguration = itemView.findViewById(R.id.llConfiguration);
-            tvUid = itemView.findViewById(R.id.tvUid);
-            tvPackage = itemView.findViewById(R.id.tvPackage);
-            tvVersion = itemView.findViewById(R.id.tvVersion);
-            tvInternet = itemView.findViewById(R.id.tvInternet);
-            tvDisabled = itemView.findViewById(R.id.tvDisabled);
-
-            btnRelated = itemView.findViewById(R.id.btnRelated);
-            ibSettings = itemView.findViewById(R.id.ibSettings);
-            ibLaunch = itemView.findViewById(R.id.ibLaunch);
-
-            cbApply = itemView.findViewById(R.id.cbApply);
-
-            llScreenWifi = itemView.findViewById(R.id.llScreenWifi);
-            ivWifiLegend = itemView.findViewById(R.id.ivWifiLegend);
-            cbScreenWifi = itemView.findViewById(R.id.cbScreenWifi);
-
-            llScreenOther = itemView.findViewById(R.id.llScreenOther);
-            ivOtherLegend = itemView.findViewById(R.id.ivOtherLegend);
-            cbScreenOther = itemView.findViewById(R.id.cbScreenOther);
-
-            cbRoaming = itemView.findViewById(R.id.cbRoaming);
-
-            cbLockdown = itemView.findViewById(R.id.cbLockdown);
-            ivLockdownLegend = itemView.findViewById(R.id.ivLockdownLegend);
-
-            btnClear = itemView.findViewById(R.id.btnClear);
-
-            llFilter = itemView.findViewById(R.id.llFilter);
-            ivLive = itemView.findViewById(R.id.ivLive);
-            tvLogging = itemView.findViewById(R.id.tvLogging);
-            btnLogging = itemView.findViewById(R.id.btnLogging);
-            lvAccess = itemView.findViewById(R.id.lvAccess);
-            btnClearAccess = itemView.findViewById(R.id.btnClearAccess);
-            cbNotify = itemView.findViewById(R.id.cbNotify);
 
             final View wifiParent = (View) cbWifi.getParent();
             wifiParent.post(new Runnable() {
@@ -365,7 +272,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> im
             holder.ivIcon.setImageResource(android.R.drawable.sym_def_app_icon);
         else {
             Uri uri = Uri.parse("android.resource://" + rule.packageName + "/" + rule.icon);
-            GlideApp.with(holder.itemView.getContext())
+            Glide.with(holder.itemView.getContext())
                     .applyDefaultRequestOptions(new RequestOptions().format(DecodeFormat.PREFER_RGB_565))
                     .load(uri)
                     //.diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -456,411 +363,26 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> im
         holder.tvRoaming.setAlpha(otherActive ? 1 : 0.5f);
         holder.tvRoaming.setVisibility(rule.roaming && (!rule.other_blocked || rule.screen_other) ? View.VISIBLE : View.INVISIBLE);
 
-        holder.tvRemarkMessaging.setVisibility(messaging.contains(rule.packageName) ? View.VISIBLE : View.GONE);
-        holder.tvRemarkDownload.setVisibility(download.contains(rule.packageName) ? View.VISIBLE : View.GONE);
-
-        // Expanded configuration section
-        holder.llConfiguration.setVisibility(rule.expanded ? View.VISIBLE : View.GONE);
-
-        // Show application details
-        holder.tvUid.setText(Integer.toString(rule.uid));
-        holder.tvPackage.setText(rule.packageName);
-        holder.tvVersion.setText(rule.version);
-
-        // Show application state
-        holder.tvInternet.setVisibility(rule.internet ? View.GONE : View.VISIBLE);
-        holder.tvDisabled.setVisibility(rule.enabled ? View.GONE : View.VISIBLE);
-
-        // Show related
-        holder.btnRelated.setVisibility(rule.relateduids ? View.VISIBLE : View.GONE);
-        holder.btnRelated.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent main = new Intent(context, ActivityMain.class);
-                main.putExtra(ActivityMain.EXTRA_SEARCH, Integer.toString(rule.uid));
-                main.putExtra(ActivityMain.EXTRA_RELATED, true);
-                context.startActivity(main);
-            }
-        });
-
         // Launch application settings
         if (rule.expanded) {
             Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
             intent.setData(Uri.parse("package:" + rule.packageName));
             final Intent settings = (intent.resolveActivity(context.getPackageManager()) == null ? null : intent);
-
-            holder.ibSettings.setVisibility(settings == null ? View.GONE : View.VISIBLE);
-            holder.ibSettings.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    context.startActivity(settings);
-                }
-            });
-        } else
-            holder.ibSettings.setVisibility(View.GONE);
-
+        }
         // Launch application
         if (rule.expanded) {
             Intent intent = context.getPackageManager().getLaunchIntentForPackage(rule.packageName);
             final Intent launch = (intent == null ||
                     intent.resolveActivity(context.getPackageManager()) == null ? null : intent);
-
-            holder.ibLaunch.setVisibility(launch == null ? View.GONE : View.VISIBLE);
-            holder.ibLaunch.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    context.startActivity(launch);
-                }
-            });
-        } else
-            holder.ibLaunch.setVisibility(View.GONE);
-
-        // Apply
-        holder.cbApply.setEnabled(rule.pkg && filter);
-        holder.cbApply.setOnCheckedChangeListener(null);
-        holder.cbApply.setChecked(rule.apply);
-        holder.cbApply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                rule.apply = isChecked;
-                updateRule(context, rule, true, listAll);
-            }
-        });
-
-        // Show Wi-Fi screen on condition
-        holder.llScreenWifi.setVisibility(screen_on ? View.VISIBLE : View.GONE);
-        holder.cbScreenWifi.setEnabled(rule.wifi_blocked && rule.apply);
-        holder.cbScreenWifi.setOnCheckedChangeListener(null);
-        holder.cbScreenWifi.setChecked(rule.screen_wifi);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            Drawable wrap = DrawableCompat.wrap(holder.ivWifiLegend.getDrawable());
-            DrawableCompat.setTint(wrap, colorOn);
         }
-
-        holder.cbScreenWifi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                rule.screen_wifi = isChecked;
-                updateRule(context, rule, true, listAll);
-            }
-        });
-
-        // Show mobile screen on condition
-        holder.llScreenOther.setVisibility(screen_on ? View.VISIBLE : View.GONE);
-        holder.cbScreenOther.setEnabled(rule.other_blocked && rule.apply);
-        holder.cbScreenOther.setOnCheckedChangeListener(null);
-        holder.cbScreenOther.setChecked(rule.screen_other);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            Drawable wrap = DrawableCompat.wrap(holder.ivOtherLegend.getDrawable());
-            DrawableCompat.setTint(wrap, colorOn);
-        }
-
-        holder.cbScreenOther.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                rule.screen_other = isChecked;
-                updateRule(context, rule, true, listAll);
-            }
-        });
-
-        // Show roaming condition
-        holder.cbRoaming.setEnabled((!rule.other_blocked || rule.screen_other) && rule.apply);
-        holder.cbRoaming.setOnCheckedChangeListener(null);
-        holder.cbRoaming.setChecked(rule.roaming);
-        holder.cbRoaming.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            @TargetApi(Build.VERSION_CODES.M)
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                rule.roaming = isChecked;
-                updateRule(context, rule, true, listAll);
-            }
-        });
-
-        // Show lockdown
-        holder.cbLockdown.setEnabled(rule.apply);
-        holder.cbLockdown.setOnCheckedChangeListener(null);
-        holder.cbLockdown.setChecked(rule.lockdown);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            Drawable wrap = DrawableCompat.wrap(holder.ivLockdownLegend.getDrawable());
-            DrawableCompat.setTint(wrap, colorOn);
-        }
-
-        holder.cbLockdown.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            @TargetApi(Build.VERSION_CODES.M)
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                rule.lockdown = isChecked;
-                updateRule(context, rule, true, listAll);
-            }
-        });
-
-        // Reset rule
-        holder.btnClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Util.areYouSure(view.getContext(), R.string.msg_clear_rules, new Util.DoubtListener() {
-                    @Override
-                    public void onSure() {
-                        holder.cbApply.setChecked(true);
-                        holder.cbWifi.setChecked(rule.wifi_default);
-                        holder.cbOther.setChecked(rule.other_default);
-                        holder.cbScreenWifi.setChecked(rule.screen_wifi_default);
-                        holder.cbScreenOther.setChecked(rule.screen_other_default);
-                        holder.cbRoaming.setChecked(rule.roaming_default);
-                        holder.cbLockdown.setChecked(false);
-                    }
-                });
-            }
-        });
-
-        holder.llFilter.setVisibility(Util.canFilter(context) ? View.VISIBLE : View.GONE);
-
-        // Live
-        holder.ivLive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                live = !live;
-                TypedValue tv = new TypedValue();
-                view.getContext().getTheme().resolveAttribute(live ? R.attr.iconPause : R.attr.iconPlay, tv, true);
-                holder.ivLive.setImageResource(tv.resourceId);
-                if (live)
-                    AdapterRule.this.notifyDataSetChanged();
-            }
-        });
-
-        // Show logging/filtering is disabled
-        holder.tvLogging.setText(log_app && filter ? R.string.title_logging_enabled : R.string.title_logging_disabled);
-        holder.btnLogging.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater inflater = LayoutInflater.from(context);
-                View view = inflater.inflate(R.layout.enable, null, false);
-
-                final CheckBox cbLogging = view.findViewById(R.id.cbLogging);
-                final CheckBox cbFiltering = view.findViewById(R.id.cbFiltering);
-                final CheckBox cbNotify = view.findViewById(R.id.cbNotify);
-                TextView tvFilter4 = view.findViewById(R.id.tvFilter4);
-
-                cbLogging.setChecked(log_app);
-                cbFiltering.setChecked(filter);
-                cbFiltering.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP);
-                tvFilter4.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? View.GONE : View.VISIBLE);
-                cbNotify.setChecked(notify_access);
-                cbNotify.setEnabled(log_app);
-
-                cbLogging.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                        prefs.edit().putBoolean("log_app", checked).apply();
-                        cbNotify.setEnabled(checked);
-                        if (!checked) {
-                            cbNotify.setChecked(false);
-                            prefs.edit().putBoolean("notify_access", false).apply();
-                            ServiceSinkhole.reload("changed notify", context, false);
-                        }
-                        AdapterRule.this.notifyDataSetChanged();
-                    }
-                });
-
-                cbFiltering.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                        if (checked)
-                            cbLogging.setChecked(true);
-                        prefs.edit().putBoolean("filter", checked).apply();
-                        ServiceSinkhole.reload("changed filter", context, false);
-                        AdapterRule.this.notifyDataSetChanged();
-                    }
-                });
-
-                cbNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                        prefs.edit().putBoolean("notify_access", checked).apply();
-                        ServiceSinkhole.reload("changed notify", context, false);
-                        AdapterRule.this.notifyDataSetChanged();
-                    }
-                });
-
-                AlertDialog dialog = new AlertDialog.Builder(context)
-                        .setView(view)
-                        .setCancelable(true)
-                        .create();
-                dialog.show();
-            }
-        });
 
         // Show access rules
         if (rule.expanded) {
             // Access the database when expanded only
             final AdapterAccess badapter = new AdapterAccess(context,
                     DatabaseHelper.getInstance(context).getAccess(rule.uid));
-            holder.lvAccess.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, final int bposition, long bid) {
-                    PackageManager pm = context.getPackageManager();
-                    Cursor cursor = (Cursor) badapter.getItem(bposition);
-                    final long id = cursor.getLong(cursor.getColumnIndex("ID"));
-                    final int version = cursor.getInt(cursor.getColumnIndex("version"));
-                    final int protocol = cursor.getInt(cursor.getColumnIndex("protocol"));
-                    final String daddr = cursor.getString(cursor.getColumnIndex("daddr"));
-                    final int dport = cursor.getInt(cursor.getColumnIndex("dport"));
-                    long time = cursor.getLong(cursor.getColumnIndex("time"));
-                    int block = cursor.getInt(cursor.getColumnIndex("block"));
-
-                    PopupMenu popup = new PopupMenu(context, anchor);
-                    popup.inflate(R.menu.access);
-
-                    popup.getMenu().findItem(R.id.menu_host).setTitle(
-                            Util.getProtocolName(protocol, version, false) + " " +
-                                    daddr + (dport > 0 ? "/" + dport : ""));
-
-                    SubMenu sub = popup.getMenu().findItem(R.id.menu_host).getSubMenu();
-                    boolean multiple = false;
-                    Cursor alt = null;
-                    try {
-                        alt = DatabaseHelper.getInstance(context).getAlternateQNames(daddr);
-                        while (alt.moveToNext()) {
-                            multiple = true;
-                            sub.add(Menu.NONE, Menu.NONE, 0, alt.getString(0)).setEnabled(false);
-                        }
-                    } finally {
-                        if (alt != null)
-                            alt.close();
-                    }
-                    popup.getMenu().findItem(R.id.menu_host).setEnabled(multiple);
-
-                    markPro(context, popup.getMenu().findItem(R.id.menu_allow), ActivityPro.SKU_FILTER);
-                    markPro(context, popup.getMenu().findItem(R.id.menu_block), ActivityPro.SKU_FILTER);
-
-                    // Whois
-                    final Intent lookupIP = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dnslytics.com/whois-lookup/" + daddr));
-                    if (pm.resolveActivity(lookupIP, 0) == null)
-                        popup.getMenu().removeItem(R.id.menu_whois);
-                    else
-                        popup.getMenu().findItem(R.id.menu_whois).setTitle(context.getString(R.string.title_log_whois, daddr));
-
-                    // Lookup port
-                    final Intent lookupPort = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.speedguide.net/port.php?port=" + dport));
-                    if (dport <= 0 || pm.resolveActivity(lookupPort, 0) == null)
-                        popup.getMenu().removeItem(R.id.menu_port);
-                    else
-                        popup.getMenu().findItem(R.id.menu_port).setTitle(context.getString(R.string.title_log_port, dport));
-
-                    popup.getMenu().findItem(R.id.menu_time).setTitle(
-                            SimpleDateFormat.getDateTimeInstance().format(time));
-
-                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem menuItem) {
-                            int menu = menuItem.getItemId();
-                            boolean result = false;
-                            switch (menu) {
-                                case R.id.menu_whois:
-                                    context.startActivity(lookupIP);
-                                    result = true;
-                                    break;
-
-                                case R.id.menu_port:
-                                    context.startActivity(lookupPort);
-                                    result = true;
-                                    break;
-
-                                case R.id.menu_allow:
-                                    if (IAB.isPurchased(ActivityPro.SKU_FILTER, context)) {
-                                        DatabaseHelper.getInstance(context).setAccess(id, 0);
-                                        ServiceSinkhole.reload("allow host", context, false);
-                                    } else
-                                        context.startActivity(new Intent(context, ActivityPro.class));
-                                    result = true;
-                                    break;
-
-                                case R.id.menu_block:
-                                    if (IAB.isPurchased(ActivityPro.SKU_FILTER, context)) {
-                                        DatabaseHelper.getInstance(context).setAccess(id, 1);
-                                        ServiceSinkhole.reload("block host", context, false);
-                                    } else
-                                        context.startActivity(new Intent(context, ActivityPro.class));
-                                    result = true;
-                                    break;
-
-                                case R.id.menu_reset:
-                                    DatabaseHelper.getInstance(context).setAccess(id, -1);
-                                    ServiceSinkhole.reload("reset host", context, false);
-                                    result = true;
-                                    break;
-
-                                case R.id.menu_copy:
-                                    ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                                    ClipData clip = ClipData.newPlainText("netguard", daddr);
-                                    clipboard.setPrimaryClip(clip);
-                                    return true;
-                            }
-
-                            if (menu == R.id.menu_allow || menu == R.id.menu_block || menu == R.id.menu_reset)
-                                new AsyncTask<Object, Object, Long>() {
-                                    @Override
-                                    protected Long doInBackground(Object... objects) {
-                                        return DatabaseHelper.getInstance(context).getHostCount(rule.uid, false);
-                                    }
-
-                                    @Override
-                                    protected void onPostExecute(Long hosts) {
-                                        rule.hosts = hosts;
-                                        notifyDataSetChanged();
-                                    }
-                                }.execute();
-
-                            return result;
-                        }
-                    });
-
-                    if (block == 0)
-                        popup.getMenu().removeItem(R.id.menu_allow);
-                    else if (block == 1)
-                        popup.getMenu().removeItem(R.id.menu_block);
-
-                    popup.show();
-                }
-            });
-
-            holder.lvAccess.setAdapter(badapter);
-        } else {
-            holder.lvAccess.setAdapter(null);
-            holder.lvAccess.setOnItemClickListener(null);
         }
 
-        // Clear access log
-        holder.btnClearAccess.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Util.areYouSure(view.getContext(), R.string.msg_reset_access, new Util.DoubtListener() {
-                    @Override
-                    public void onSure() {
-                        DatabaseHelper.getInstance(context).clearAccess(rule.uid, true);
-                        if (!live)
-                            notifyDataSetChanged();
-                        if (rv != null)
-                            rv.scrollToPosition(holder.getAdapterPosition());
-                    }
-                });
-            }
-        });
-
-        // Notify on access
-        holder.cbNotify.setEnabled(prefs.getBoolean("notify_access", false) && rule.apply);
-        holder.cbNotify.setOnCheckedChangeListener(null);
-        holder.cbNotify.setChecked(rule.notify);
-        holder.cbNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                rule.notify = isChecked;
-                updateRule(context, rule, true, listAll);
-            }
-        });
     }
 
     @Override
@@ -869,13 +391,6 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> im
 
         //Context context = holder.itemView.getContext();
         //GlideApp.with(context).clear(holder.ivIcon);
-
-        CursorAdapter adapter = (CursorAdapter) holder.lvAccess.getAdapter();
-        if (adapter != null) {
-            Log.i(TAG, "Closing access cursor");
-            adapter.changeCursor(null);
-            holder.lvAccess.setAdapter(null);
-        }
     }
 
     private void markPro(Context context, MenuItem menu, String sku) {

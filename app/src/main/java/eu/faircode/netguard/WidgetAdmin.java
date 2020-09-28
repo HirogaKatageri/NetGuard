@@ -1,20 +1,20 @@
 package eu.faircode.netguard;
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
@@ -34,13 +34,13 @@ import androidx.preference.PreferenceManager;
 import java.util.Date;
 
 public class WidgetAdmin extends ReceiverAutostart {
-    private static final String TAG = "NetGuard.Widget";
+    private static final String TAG = "Netguard.Widget";
 
-    public static final String INTENT_ON = "eu.faircode.netguard.ON";
-    public static final String INTENT_OFF = "eu.faircode.netguard.OFF";
+    public static final String INTENT_ON = "gg.nexplay.booster.ON";
+    public static final String INTENT_OFF = "gg.nexplay.booster.OFF";
 
-    public static final String INTENT_LOCKDOWN_ON = "eu.faircode.netguard.LOCKDOWN_ON";
-    public static final String INTENT_LOCKDOWN_OFF = "eu.faircode.netguard.LOCKDOWN_OFF";
+    public static final String INTENT_LOCKDOWN_ON = "gg.nexplay.booster.LOCKDOWN_ON";
+    public static final String INTENT_LOCKDOWN_OFF = "gg.nexplay.booster.LOCKDOWN_OFF";
 
     @Override
     public void onReceive(Context context, Intent intent) {

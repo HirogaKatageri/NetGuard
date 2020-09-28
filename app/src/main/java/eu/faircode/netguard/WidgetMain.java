@@ -1,20 +1,20 @@
 package eu.faircode.netguard;
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
@@ -32,7 +32,7 @@ import android.widget.RemoteViews;
 import androidx.preference.PreferenceManager;
 
 public class WidgetMain extends AppWidgetProvider {
-    private static final String TAG = "NetGuard.Widget";
+    private static final String TAG = "Netguard.Widget";
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -51,7 +51,7 @@ public class WidgetMain extends AppWidgetProvider {
                 for (int id : appWidgetIds) {
                     RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widgetmain);
                     views.setOnClickPendingIntent(R.id.ivEnabled, pi);
-                    views.setImageViewResource(R.id.ivEnabled, enabled ? R.drawable.ic_security_color_24dp : R.drawable.ic_security_white_24dp_60);
+                    views.setImageViewResource(R.id.ivEnabled, enabled ? R.drawable.ic_wifi_boost : R.drawable.ic_wifi_boost);
                     appWidgetManager.updateAppWidget(id, views);
                 }
             } catch (Throwable ex) {

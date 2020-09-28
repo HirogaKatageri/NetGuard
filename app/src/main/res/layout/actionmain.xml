@@ -9,7 +9,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_security_white_24dp" />
+        android:src="@drawable/ic_wifi_boost" />
 
     <ImageView
         android:id="@+id/ivQueue"

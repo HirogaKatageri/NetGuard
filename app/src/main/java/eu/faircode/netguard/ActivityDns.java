@@ -1,20 +1,20 @@
 package eu.faircode.netguard;
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
@@ -45,7 +45,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class ActivityDns extends AppCompatActivity {
-    private static final String TAG = "NetGuard.DNS";
+    private static final String TAG = "Netguard.DNS";
 
     private static final int REQUEST_EXPORT = 1;
 
@@ -84,27 +84,24 @@ public class ActivityDns extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_refresh:
-                refresh();
-                return true;
-
-            case R.id.menu_cleanup:
-                cleanup();
-                return true;
-
-            case R.id.menu_clear:
-                Util.areYouSure(this, R.string.menu_clear, new Util.DoubtListener() {
-                    @Override
-                    public void onSure() {
-                        clear();
-                    }
-                });
-                return true;
-
-            case R.id.menu_export:
-                export();
-                return true;
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_refresh) {
+            refresh();
+            return true;
+        } else if (itemId == R.id.menu_cleanup) {
+            cleanup();
+            return true;
+        } else if (itemId == R.id.menu_clear) {
+            Util.areYouSure(this, R.string.menu_clear, new Util.DoubtListener() {
+                @Override
+                public void onSure() {
+                    clear();
+                }
+            });
+            return true;
+        } else if (itemId == R.id.menu_export) {
+            export();
+            return true;
         }
         return false;
     }

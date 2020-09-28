@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard gir enkle og avanserte måter å blokkere tilgang til internett - ingen root er nødvendig. Apper og adresser kan enkelt tillates eller nektes tilgang til Wi-Fi- og/eller mobilforbindelsen din.</string>
-    <string name="app_android">NetGuard krever Android 5.1 eller nyere</string>
-    <string name="app_xposed">Xposed forårsaker for mange krasjer, noe som kan føre til at NetGuard blir fjernet fra Google Play Store, derfor støttes ikke NetGuard mens Xposed er installert</string>
+    <string name="app_description">Wifi Booster gir enkle og avanserte måter å blokkere tilgang til internett - ingen root er nødvendig. Apper og adresser kan enkelt tillates eller nektes tilgang til Wi-Fi- og/eller mobilforbindelsen din.</string>
+    <string name="app_android">Wifi Booster krever Android 5.1 eller nyere</string>
+    <string name="app_xposed">Xposed forårsaker for mange krasjer, noe som kan føre til at Wifi Booster blir fjernet fra Google Play Store, derfor støttes ikke Wifi Booster mens Xposed er installert</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Privatlivsretningslinjer</a></string>
-    <string name="app_first">Det er lagt stor vekt på å utvikle og teste NetGuard, men det er umulig å garantere at NetGuard vil fungere riktig på alle enheter.</string>
+    <string name="app_first">Det er lagt stor vekt på å utvikle og teste Wifi Booster, men det er umulig å garantere at Wifi Booster vil fungere riktig på alle enheter.</string>
     <string name="app_agree">Enig</string>
     <string name="app_disagree">Uenig</string>
-    <string name="app_support">NetGuard behøver din hjelp. Trykk for å kjøpe Pro-funksjoner for å holde prosjektet gående.</string>
+    <string name="app_support">Wifi Booster behøver din hjelp. Trykk for å kjøpe Pro-funksjoner for å holde prosjektet gående.</string>
     <string name="channel_foreground">Kjørende tjenester</string>
     <string name="channel_notify">Generelle varslinger</string>
     <string name="channel_access">Tilgang til varslinger</string>
@@ -124,13 +124,13 @@
     <string name="setting_technical_networks">Nettverk</string>
     <string name="setting_technical_subscription">Abonnementer</string>
     <string name="summary_install">Show status bar notification to directly configure newly installed apps (pro feature)</string>
-    <string name="summary_auto">After disabling using the widget, automatically enable NetGuard again after the selected number of minutes (enter zero to disable this option)</string>
+    <string name="summary_auto">After disabling using the widget, automatically enable Wifi Booster again after the selected number of minutes (enter zero to disable this option)</string>
     <string name="summary_delay">After turning the screen off, keep screen on rules active for the selected number of minutes (enter zero to disable this option)</string>
     <string name="summary_update">Se etter nye utgivelser på GitHub to ganger daglig</string>
     <string name="summary_tethering">Depending on the Android version, tethering may work or may not work. Tethered traffic cannot be filtered.</string>
     <string name="summary_subnet">Aktiver ruting på nettet; kan aktivere Wi-Fi-anrop, men kan også utløse feil i Android og øke batteribruken</string>
     <string name="summary_lan">Tillat apper å koble seg til lokale nettverksadresser, for eksempel 10.0.0.0/8, 172.16.0.0/12 og 192.168.0.0/16</string>
-    <string name="summary_ip6">Rute IP versjon 6-trafikk til NetGuard slik at den selektivt kan tillates eller blokkeres</string>
+    <string name="summary_ip6">Rute IP versjon 6-trafikk til Wifi Booster slik at den selektivt kan tillates eller blokkeres</string>
     <string name="summary_wifi_home">Apply Wi-Fi network rules for selected network only (apply mobile network rules for other Wi-Fi networks)</string>
     <string name="summary_metered">Apply mobile network rules to metered (paid, tethered) Wi-Fi networks</string>
     <string name="summary_metered_2g">Apply Wi-Fi network rules for 2G data connections</string>
@@ -138,7 +138,7 @@
     <string name="summary_metered_4g">Apply Wi-Fi network rules for LTE data connections</string>
     <string name="summary_national_roaming">Do not apply roaming rules when the SIM and mobile network country are the same</string>
     <string name="summary_eu_roaming">Do not apply roaming rules when the SIM and mobile network country are within the EU (roam like at home)</string>
-    <string name="summary_call">Disable NetGuard on incoming or outgoing telephone call. This can be used to work around IP/Wi-Fi calling problems.</string>
+    <string name="summary_call">Disable Wifi Booster on incoming or outgoing telephone call. This can be used to work around IP/Wi-Fi calling problems.</string>
     <string name="summary_system">Define rules for system apps (for experts)</string>
     <string name="summary_log_app">Logg forsøker å få tilgang til internett for apper. Dette kan føre til ekstra batteribruk.</string>
     <string name="summary_access">Show a status bar notification when an app attempts to access a new internet address (when filtering is disabled, only blocked internet access attempts will be notified)</string>
@@ -148,7 +148,7 @@
     <string name="summary_rcode">The default value is 3 (NXDOMAIN), which means \'non-existent domain\'.</string>
     <string name="summary_validate">Domain name used to validate the internet connection at port 443 (https).</string>
     <string name="summary_socks5_enabled">Bare TCP-trafikk vil bli sendt til proxy-serveren</string>
-    <string name="summary_watchdog">Periodically check if NetGuard is still running (enter zero to disable this option). This might result in extra battery usage.</string>
+    <string name="summary_watchdog">Periodically check if Wifi Booster is still running (enter zero to disable this option). This might result in extra battery usage.</string>
     <string name="summary_stats">Vis nettverkshastighetsgraf i statuslinjevarsling</string>
     <string-array name="default_wifi_home"></string-array>
     <string name="msg_sure">Er du sikker?</string>
@@ -156,20 +156,20 @@
     <string name="msg_packages">%1$d tillatt, %2$d blokkert</string>
     <string name="msg_hosts">%1$d tillatt, %2$d blokkert, %3$d verter</string>
     <string name="msg_waiting">Waiting for event</string>
-    <string name="msg_disabled">NetGuard er deaktivert, bruk bryteren ovenfor for å aktivere NetGuard</string>
-    <string name="msg_revoked">NetGuard er deaktivert, sannsynligvis ved å bruke en annen VPN-basert app</string>
+    <string name="msg_disabled">Wifi Booster er deaktivert, bruk bryteren ovenfor for å aktivere Wifi Booster</string>
+    <string name="msg_revoked">Wifi Booster er deaktivert, sannsynligvis ved å bruke en annen VPN-basert app</string>
     <string name="msg_installed">\'%1$s\' installert</string>
     <string name="msg_installed_n">Har blitt installert</string>
     <string name="msg_access">%1$s forsøk på Internettilgang</string>
     <string name="msg_access_n">Forsøk på Internettilgang</string>
     <string name="msg_completed">Handlingen er utført</string>
-    <string name="msg_vpn">NetGuard bruker en lokal VPN for å filtrere internettrafikk.
+    <string name="msg_vpn">Wifi Booster bruker en lokal VPN for å filtrere internettrafikk.
 Av denne grunn kan du tillate en VPN-tilkobling i neste dialog.
 Internett-trafikken din blir ikke sendt til en ekstern VPN-server.</string>
-    <string name="msg_autostart">NetGuard kunne ikke starte automatisk. Dette er sannsynligvis på grunn av en feil i Android-versjonen din.</string>
+    <string name="msg_autostart">Wifi Booster kunne ikke starte automatisk. Dette er sannsynligvis på grunn av en feil i Android-versjonen din.</string>
     <string name="msg_error">En uventet feil har oppstått: \'%s\'</string>
     <string name="msg_start_failed">Android nektet å starte VPN-tjenesten i dette øyeblikket. Dette er sannsynligvis på grunn av en feil i Android-versjonen din.</string>
-    <string name="msg_try">Prøv NetGuard</string>
+    <string name="msg_try">Prøv Wifi Booster</string>
     <string name="msg_terms">By donating you agree to the <a href="http://www.netguard.me/#terms">terms &amp; conditions</a></string>
     <string name="msg_dimming">If you cannot press OK in the next dialog, another (screen dimming) app is likely manipulating the screen.</string>
     <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/dag</string>
@@ -179,11 +179,11 @@ Internett-trafikken din blir ikke sendt til en ekstern VPN-server.</string>
     <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
     <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">For consistent results, the Android battery optimizations should be disabled for NetGuard.
-\n\nIn the next dialog, select \"All apps\" at the top, tap on NetGuard in the list and select and confirm \"Don\'t optimize\".</string>
-    <string name="msg_datasaving">For consistent results, the Android data saving options should be disabled for NetGuard
+    <string name="msg_doze">For consistent results, the Android battery optimizations should be disabled for Wifi Booster.
+\n\nIn the next dialog, select \"All apps\" at the top, tap on Wifi Booster in the list and select and confirm \"Don\'t optimize\".</string>
+    <string name="msg_datasaving">For consistent results, the Android data saving options should be disabled for Wifi Booster
 \n\nIn the next dialog, enable the options \"Background data\" and \"Unrestricted data usage\"</string>
-    <string name="msg_filter">Using filtering will cause Android to attribute data and power usage to NetGuard - Android assumes the data and power are being used by NetGuard, rather than the original apps</string>
+    <string name="msg_filter">Using filtering will cause Android to attribute data and power usage to Wifi Booster - Android assumes the data and power are being used by Wifi Booster, rather than the original apps</string>
     <string name="msg_filter4">Android 4 krever filtrering for å bli aktivert</string>
     <string name="msg_log_disabled">Trafikkloggføring er deaktivert, bruk bryteren ovenfor for å aktivere loggføring. Trafikkloggføring kan føre til ekstra batteriforbruk.</string>
     <string name="msg_clear_rules">Dette vil tilbakestille reglene og forholdene til sine standardverdier</string>
@@ -196,20 +196,20 @@ Internett-trafikken din blir ikke sendt til en ekstern VPN-server.</string>
     <string name="msg_stop_forward">Vil du avslutte viderekoblingen av %1$s-porten %2$d?</string>
     <string name="msg_metered">Nettverket er forbrukspriset</string>
     <string name="msg_inactive">Ingen aktiv internettforbindelse</string>
-    <string name="msg_queue">NetGuard er opptatt</string>
+    <string name="msg_queue">Wifi Booster er opptatt</string>
     <string name="msg_update">En oppdatering er tilgjengelig, trykk for å laste ned</string>
     <string name="msg_usage">You can allow (greenish) or deny (reddish) Wi-Fi or mobile internet access by tapping on the icons next to an app</string>
-    <string name="msg_fairemail">If you installed NetGuard to protect your privacy, you might be interested in <a href="https://email.faircode.eu/">FairEmail</a>, an open source, privacy friendly email app, too</string>
+    <string name="msg_fairemail">If you installed Wifi Booster to protect your privacy, you might be interested in <a href="https://email.faircode.eu/">FairEmail</a>, an open source, privacy friendly email app, too</string>
     <string name="msg_whitelist">Internet access is allowed by default (blacklist mode), this can be changed in the settings</string>
     <string name="msg_push">Incoming (push) messages are mostly handled by the system component Play services, which is allowed internet access by default</string>
     <string name="msg_system">Managing all (system) apps can be enabled in the settings</string>
     <string name="msg_issue">Please describe the problem and indicate the time of the problem:</string>
     <string name="msg_vpn_cancelled">VPN connection cancelled\nDid you configure another VPN to be an always-on VPN?</string>
-    <string name="msg_on">Powering down your device with NetGuard enabled, will automatically start NetGuard on powering up your device</string>
+    <string name="msg_on">Powering down your device with Wifi Booster enabled, will automatically start Wifi Booster on powering up your device</string>
     <string name="msg_unavailable">This feature is not available on this Android version</string>
     <string name="msg_always_on">Another VPN is set as Always-on VPN</string>
-    <string name="msg_always_on_lockdown">Turn off \"Block connections without VPN\" in Android VPN settings to use NetGuard in filtering mode</string>
-    <string name="msg_private_dns">Turn off \"Private DNS\" in Android network settings to use NetGuard in filtering mode</string>
+    <string name="msg_always_on_lockdown">Turn off \"Block connections without VPN\" in Android VPN settings to use Wifi Booster in filtering mode</string>
+    <string name="msg_private_dns">Turn off \"Private DNS\" in Android network settings to use Wifi Booster in filtering mode</string>
     <string name="title_lockdown_enabled">Trafikken er stengt av</string>
     <string name="title_unmetered_allowed">Ikke-forbruksmålt trafikk er tillatt</string>
     <string name="title_unmetered_blocked">Ikke-forbruksmålt trafikk er blokkert</string>

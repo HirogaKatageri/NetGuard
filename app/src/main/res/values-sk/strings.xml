@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard poskytuje jednoduché a pokročilé spôsoby blokovania prístupu na internet - nevyžadujúcich root prístup. Aplikáciám a adresám môže byť individuálne povolený alebo odmietnutý prístup k Wi-Fi alebo mobilnému pripojeniu.</string>
-    <string name="app_android">NetGuard requires Android 5.1 or later</string>
-    <string name="app_xposed">Xposed causes too many crashes, which might result in NetGuard being removed from the Google Play Store, therefore NetGuard isn\'t supported while Xposed is installed</string>
+    <string name="app_description">Wifi Booster poskytuje jednoduché a pokročilé spôsoby blokovania prístupu na internet - nevyžadujúcich root prístup. Aplikáciám a adresám môže byť individuálne povolený alebo odmietnutý prístup k Wi-Fi alebo mobilnému pripojeniu.</string>
+    <string name="app_android">Wifi Booster requires Android 5.1 or later</string>
+    <string name="app_xposed">Xposed causes too many crashes, which might result in Wifi Booster being removed from the Google Play Store, therefore Wifi Booster isn\'t supported while Xposed is installed</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Privacy policy</a></string>
-    <string name="app_first">Great care has been taken to develop and test NetGuard, however it is impossible to guarantee NetGuard will work correctly on every device.</string>
+    <string name="app_first">Great care has been taken to develop and test Wifi Booster, however it is impossible to guarantee Wifi Booster will work correctly on every device.</string>
     <string name="app_agree">Súhlasím</string>
     <string name="app_disagree">Odmietam</string>
-    <string name="app_support">NetGuard needs your help. Tap to purchase pro features to keep the project going.</string>
+    <string name="app_support">Wifi Booster needs your help. Tap to purchase pro features to keep the project going.</string>
     <string name="channel_foreground">Running services</string>
     <string name="channel_notify">General notifications</string>
     <string name="channel_access">Access notifications</string>
@@ -124,13 +124,13 @@
     <string name="setting_technical_networks">Siete</string>
     <string name="setting_technical_subscription">Odbery</string>
     <string name="summary_install">Zobraziť oznámenie v stavovom riadku na priame nastavenie novonainštalovaných aplikácií (pro funkcia)</string>
-    <string name="summary_auto">Po vypnutí pomocou miniaplikácie znovu spustiť NetGuard po vybratom počte minút (zadajte nulu pre vypnutie tejto možnosti)</string>
+    <string name="summary_auto">Po vypnutí pomocou miniaplikácie znovu spustiť Wifi Booster po vybratom počte minút (zadajte nulu pre vypnutie tejto možnosti)</string>
     <string name="summary_delay">Ponechať po vypnutí obrazovky pravidlá zapnutia obrazovky aktívne na vybratý počet minút (zadajte nulu pre vypnutie tejto možnosti)</string>
     <string name="summary_update">Kontrolovať nové vydania na GitHube dvakrát denne</string>
     <string name="summary_tethering">V závislosti na verziu systému Android, zdieľanie internetu môže alebo nemusí fungovať. Zdieľaný prenos nie je možné filtrovať.</string>
     <string name="summary_subnet">Povoliť podsieťové presmerovanie; môže umožniť Wi-Fi volania, ale môže tiež vyvolať chyby v Androide a zvýšiť spotrebu batérie</string>
     <string name="summary_lan">Povoliť aplikáciam pripojenie na adresy miestnej sieti, ako 10.0.0.0/8, 172.16.0.0/12 a 192.168.0.0/16</string>
-    <string name="summary_ip6">Smerovať IPv6 prenos do NetGuard, takže môžete selektívne povolený alebo blokovaný</string>
+    <string name="summary_ip6">Smerovať IPv6 prenos do Wifi Booster, takže môžete selektívne povolený alebo blokovaný</string>
     <string name="summary_wifi_home">Použiť pravidlá Wi-Fi sietí len na vybrané siete (použite pravidlá mobilných sietí pre ostatné Wi-Fi siete)</string>
     <string name="summary_metered">Použiť pravidlá mobilných sietí na merané (platené, zdieľané) Wi-Fi siete</string>
     <string name="summary_metered_2g">Použiť pravidlá Wi-Fi sietí na 2G dátové pripojenia</string>
@@ -138,7 +138,7 @@
     <string name="summary_metered_4g">Použiť pravidlá Wi-Fi sietí na LTE dátové pripojenia</string>
     <string name="summary_national_roaming">Nepoužiť pravidlá roamingu, keď krajina mobilnej siete a SIM sú rovnaké</string>
     <string name="summary_eu_roaming">Do not apply roaming rules when the SIM and mobile network country are within the EU (roam like at home)</string>
-    <string name="summary_call">Disable NetGuard on incoming or outgoing telephone call. This can be used to work around IP/Wi-Fi calling problems.</string>
+    <string name="summary_call">Disable Wifi Booster on incoming or outgoing telephone call. This can be used to work around IP/Wi-Fi calling problems.</string>
     <string name="summary_system">Určiť pravidlá pre systémové pravidlá (pre expertov)</string>
     <string name="summary_log_app">Zaznamenať pokusy o získanie prístupu na internet u aplikácií. Môže to spôsobiť zvýšenú spotrebu batérie.</string>
     <string name="summary_access">Show a status bar notification when an app attempts to access a new internet address (when filtering is disabled, only blocked internet access attempts will be notified)</string>
@@ -148,7 +148,7 @@
     <string name="summary_rcode">The default value is 3 (NXDOMAIN), which means \'non-existent domain\'.</string>
     <string name="summary_validate">Domain name used to validate the internet connection at port 443 (https).</string>
     <string name="summary_socks5_enabled">Only TCP traffic will be sent to the proxy server</string>
-    <string name="summary_watchdog">Periodically check if NetGuard is still running (enter zero to disable this option). This might result in extra battery usage.</string>
+    <string name="summary_watchdog">Periodically check if Wifi Booster is still running (enter zero to disable this option). This might result in extra battery usage.</string>
     <string name="summary_stats">Zobraziť oznámenie s graf rýchlosti siete v stavovom riadku</string>
     <string-array name="default_wifi_home"></string-array>
     <string name="msg_sure">Ste si istý?</string>
@@ -156,19 +156,19 @@
     <string name="msg_packages">Povolené: %1$d, blokované: %2$d</string>
     <string name="msg_hosts">Povolené: %1$d, blokované: %2$d, hostitelia: %3$d</string>
     <string name="msg_waiting">Čaká na udalosť</string>
-    <string name="msg_disabled">NetGuard je vypnutý, použite prepínač vyššie na zapnutie NetGuard</string>
-    <string name="msg_revoked">NetGuard bol zakázaný, pravdepodobne použitím inej aplikácie založenej na VPN</string>
+    <string name="msg_disabled">Wifi Booster je vypnutý, použite prepínač vyššie na zapnutie Wifi Booster</string>
+    <string name="msg_revoked">Wifi Booster bol zakázaný, pravdepodobne použitím inej aplikácie založenej na VPN</string>
     <string name="msg_installed">Aplikácia \'%1$s\' bola nainštalovaná</string>
     <string name="msg_installed_n">Nainštalované</string>
     <string name="msg_access">Aplikácia %1$s sa pokúsila o prístup k internetu</string>
     <string name="msg_access_n">Pokus o pripojenie na internet</string>
     <string name="msg_completed">Akcia bola dokončená</string>
-    <string name="msg_vpn">NetGuard používa miestne VPN pripojenie na filtrovanie internetového prenosu. 
+    <string name="msg_vpn">Wifi Booster používa miestne VPN pripojenie na filtrovanie internetového prenosu.
 Z tohto dôvodu povoľte VPN pripojenie v ďalšom dialógovom okne. Váš internetový prenos nie je zasielaný na vzdialený VPN server.</string>
-    <string name="msg_autostart">Aplikácii NetGuard sa nepodarilo spustiť automaticky. To je pravdepodobne spôsobené z dôvodu chyby vo vašej verzii systému Android.</string>
+    <string name="msg_autostart">Aplikácii Wifi Booster sa nepodarilo spustiť automaticky. To je pravdepodobne spôsobené z dôvodu chyby vo vašej verzii systému Android.</string>
     <string name="msg_error">Vyskytla sa neočakávaná chyba: \'%s\'</string>
     <string name="msg_start_failed">Android refused to start the VPN service at this moment. This is likely because of a bug in your Android version.</string>
-    <string name="msg_try">Skúsiť NetGuard</string>
+    <string name="msg_try">Skúsiť Wifi Booster</string>
     <string name="msg_terms">Darovaním súhlasíte s <a href="http://www.netguard.me/#terms">podmienkami služby</a></string>
     <string name="msg_dimming">Ak nemôžete stlačiť tlačidlo OK na ďalšom okne, tak iná aplikácia (na ovladanie jasu) prekrýva obrazovkou.</string>
     <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/deň</string>
@@ -178,11 +178,11 @@ Z tohto dôvodu povoľte VPN pripojenie v ďalšom dialógovom okne. Váš inter
     <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
     <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">For consistent results, the Android battery optimizations should be disabled for NetGuard.
-\n\nIn the next dialog, select \"All apps\" at the top, tap on NetGuard in the list and select and confirm \"Don\'t optimize\".</string>
-    <string name="msg_datasaving">For consistent results, the Android data saving options should be disabled for NetGuard
+    <string name="msg_doze">For consistent results, the Android battery optimizations should be disabled for Wifi Booster.
+\n\nIn the next dialog, select \"All apps\" at the top, tap on Wifi Booster in the list and select and confirm \"Don\'t optimize\".</string>
+    <string name="msg_datasaving">For consistent results, the Android data saving options should be disabled for Wifi Booster
 \n\nIn the next dialog, enable the options \"Background data\" and \"Unrestricted data usage\"</string>
-    <string name="msg_filter">Using filtering will cause Android to attribute data and power usage to NetGuard - Android assumes the data and power are being used by NetGuard, rather than the original apps</string>
+    <string name="msg_filter">Using filtering will cause Android to attribute data and power usage to Wifi Booster - Android assumes the data and power are being used by Wifi Booster, rather than the original apps</string>
     <string name="msg_filter4">Android 4 requires filtering to be enabled</string>
     <string name="msg_log_disabled">Zaznamenávanie prenosu je vypnuté, použite prepínač vyššie na povolenie zaznamenávanie. Zaznamenávanie prenosu môže spôsobiť zvýšenú spotrebu batérie.</string>
     <string name="msg_clear_rules">Týmto sa obnovia pravidlá a podmienky na predvolené hodnoty</string>
@@ -195,20 +195,20 @@ Z tohto dôvodu povoľte VPN pripojenie v ďalšom dialógovom okne. Váš inter
     <string name="msg_stop_forward">Zastaviť presmerovanie z %1$s port %2$d?</string>
     <string name="msg_metered">Meraná sieť</string>
     <string name="msg_inactive">No active internet connection</string>
-    <string name="msg_queue">NetGuard je zaneprázdnený</string>
+    <string name="msg_queue">Wifi Booster je zaneprázdnený</string>
     <string name="msg_update">K dispozícii je aktualizácia, dotykom ju stiahnite</string>
     <string name="msg_usage">You can allow (greenish) or deny (reddish) Wi-Fi or mobile internet access by tapping on the icons next to an app</string>
-    <string name="msg_fairemail">If you installed NetGuard to protect your privacy, you might be interested in <a href="https://email.faircode.eu/">FairEmail</a>, an open source, privacy friendly email app, too</string>
+    <string name="msg_fairemail">If you installed Wifi Booster to protect your privacy, you might be interested in <a href="https://email.faircode.eu/">FairEmail</a>, an open source, privacy friendly email app, too</string>
     <string name="msg_whitelist">Prístup k internetu je povolený v predvolenom nastavení, túto možnosť môžete zmeniť v nastaveniach</string>
     <string name="msg_push">Push správy sú väčšinou riadené systémovou súčasťou Služby Google Play, ktorej je povolený prístup k internetu v predvolenom nastavení</string>
     <string name="msg_system">Spravovanie systémových aplikácií môže byť povolené v nastaveniach</string>
     <string name="msg_issue">Prosím, opíšte problém a uveďte jeho čas:</string>
     <string name="msg_vpn_cancelled">VPN connection cancelled\nDid you configure another VPN to be an always-on VPN?</string>
-    <string name="msg_on">Powering down your device with NetGuard enabled, will automatically start NetGuard on powering up your device</string>
+    <string name="msg_on">Powering down your device with Wifi Booster enabled, will automatically start Wifi Booster on powering up your device</string>
     <string name="msg_unavailable">This feature is not available on this Android version</string>
     <string name="msg_always_on">Another VPN is set as Always-on VPN</string>
-    <string name="msg_always_on_lockdown">Turn off \"Block connections without VPN\" in Android VPN settings to use NetGuard in filtering mode</string>
-    <string name="msg_private_dns">Turn off \"Private DNS\" in Android network settings to use NetGuard in filtering mode</string>
+    <string name="msg_always_on_lockdown">Turn off \"Block connections without VPN\" in Android VPN settings to use Wifi Booster in filtering mode</string>
+    <string name="msg_private_dns">Turn off \"Private DNS\" in Android network settings to use Wifi Booster in filtering mode</string>
     <string name="title_lockdown_enabled">Traffic is locked down</string>
     <string name="title_unmetered_allowed">Nemeraný prenos je povolený</string>
     <string name="title_unmetered_blocked">Nemeraný prenos je blokovaný</string>

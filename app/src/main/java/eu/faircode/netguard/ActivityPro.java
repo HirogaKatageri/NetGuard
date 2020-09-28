@@ -1,20 +1,20 @@
 package eu.faircode.netguard;
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
@@ -51,7 +51,7 @@ import androidx.core.app.NavUtils;
 import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
 public class ActivityPro extends AppCompatActivity {
-    private static final String TAG = "NetGuard.Pro";
+    private static final String TAG = "Netguard.Pro";
 
     private IAB iab;
 
@@ -114,34 +114,25 @@ public class ActivityPro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String sku;
-                switch (view.getId()) {
-                    case R.id.tvLogTitle:
-                        sku = SKU_LOG;
-                        break;
-                    case R.id.tvFilterTitle:
-                        sku = SKU_FILTER;
-                        break;
-                    case R.id.tvNotifyTitle:
-                        sku = SKU_NOTIFY;
-                        break;
-                    case R.id.tvSpeedTitle:
-                        sku = SKU_SPEED;
-                        break;
-                    case R.id.tvThemeTitle:
-                        sku = SKU_THEME;
-                        break;
-                    case R.id.tvAllTitle:
-                        sku = SKU_PRO1;
-                        break;
-                    case R.id.tvDev1Title:
-                        sku = SKU_SUPPORT1;
-                        break;
-                    case R.id.tvDev2Title:
-                        sku = SKU_SUPPORT2;
-                        break;
-                    default:
-                        sku = SKU_PRO1;
-                        break;
+                int id = view.getId();
+                if (id == R.id.tvLogTitle) {
+                    sku = SKU_LOG;
+                } else if (id == R.id.tvFilterTitle) {
+                    sku = SKU_FILTER;
+                } else if (id == R.id.tvNotifyTitle) {
+                    sku = SKU_NOTIFY;
+                } else if (id == R.id.tvSpeedTitle) {
+                    sku = SKU_SPEED;
+                } else if (id == R.id.tvThemeTitle) {
+                    sku = SKU_THEME;
+                } else if (id == R.id.tvAllTitle) {
+                    sku = SKU_PRO1;
+                } else if (id == R.id.tvDev1Title) {
+                    sku = SKU_SUPPORT1;
+                } else if (id == R.id.tvDev2Title) {
+                    sku = SKU_SUPPORT2;
+                } else {
+                    sku = SKU_PRO1;
                 }
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -264,17 +255,16 @@ public class ActivityPro extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                Log.i(TAG, "Up");
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            case R.id.menu_challenge:
-                menu_challenge();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            Log.i(TAG, "Up");
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        } else if (itemId == R.id.menu_challenge) {
+            menu_challenge();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -296,7 +286,7 @@ public class ActivityPro extends AppCompatActivity {
 
         String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         final String challenge = (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? Build.SERIAL : "O3" + android_id);
-        String seed = (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "NetGuard2" : "NetGuard3");
+        String seed = (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "Nexplay2" : "Nexplay3");
 
         // Challenge
         TextView tvChallenge = view.findViewById(R.id.tvChallenge);

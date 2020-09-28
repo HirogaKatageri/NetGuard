@@ -2,20 +2,20 @@ package eu.faircode.netguard;
 
 
 /*
-    This file is part of NetGuard.
+    This file is part of Netguard.
 
-    NetGuard is free software: you can redistribute it and/or modify
+    Netguard is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    NetGuard is distributed in the hope that it will be useful,
+    Netguard is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with NetGuard.  If not, see <http://www.gnu.org/licenses/>.
+    along with Netguard.  If not, see <http://www.gnu.org/licenses/>.
 
     Copyright 2015-2019 by Marcel Bokhorst (M66B)
 */
@@ -31,9 +31,9 @@ import android.widget.TextView;
 import java.net.InetAddress;
 
 public class ActivityForwardApproval extends Activity {
-    private static final String TAG = "NetGuard.Forward";
-    private static final String ACTION_START_PORT_FORWARD = "eu.faircode.netguard.START_PORT_FORWARD";
-    private static final String ACTION_STOP_PORT_FORWARD = "eu.faircode.netguard.STOP_PORT_FORWARD";
+    private static final String TAG = "Netguard.Forward";
+    private static final String ACTION_START_PORT_FORWARD = "gg.nexplay.booster.START_PORT_FORWARD";
+    private static final String ACTION_STOP_PORT_FORWARD = "gg.nexplay.booster.STOP_PORT_FORWARD";
 
     static {
         try {
@@ -88,7 +88,7 @@ public class ActivityForwardApproval extends Activity {
             public void onClick(View view) {
                 if (ACTION_START_PORT_FORWARD.equals(getIntent().getAction())) {
 /*
-am start -a eu.faircode.netguard.START_PORT_FORWARD \
+am start -a gg.nexplay.booster.START_PORT_FORWARD \
 -n eu.faircode.netguard/eu.faircode.netguard.ActivityForwardApproval \
 --ei protocol 17 \
 --ei dport 53 \
@@ -104,7 +104,7 @@ am start -a eu.faircode.netguard.START_PORT_FORWARD \
 
                 } else if (ACTION_STOP_PORT_FORWARD.equals(getIntent().getAction())) {
 /*
-am start -a eu.faircode.netguard.STOP_PORT_FORWARD \
+am start -a gg.nexplay.booster.STOP_PORT_FORWARD \
 -n eu.faircode.netguard/eu.faircode.netguard.ActivityForwardApproval \
 --ei protocol 17 \
 --ei dport 53 \

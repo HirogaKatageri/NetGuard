@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="eu.faircode.netguard"
     android:installLocation="internalOnly">
 
@@ -24,14 +23,6 @@
         </intent>
     </queries-->
 
-    <permission
-        android:name="eu.faircode.netguard.permission.ADMIN"
-        android:description="@string/app_description"
-        android:label="@string/app_name"
-        android:protectionLevel="signature" />
-
-    <uses-permission android:name="eu.faircode.netguard.permission.ADMIN" />
-
     <uses-feature
         android:name="android.hardware.wifi"
         android:required="false" />
@@ -45,17 +36,7 @@
         android:name="android.hardware.touchscreen"
         android:required="false" />
 
-    <application
-        android:name="ApplicationEx"
-        android:allowBackup="false"
-        android:appCategory="productivity"
-        android:description="@string/app_description"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppThemeTeal"
-        tools:ignore="ManifestResource">
+    <application>
 
         <meta-data
             android:name="android.max_aspect"
@@ -66,48 +47,17 @@
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:resizeableActivity="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:resizeableActivity="true"
+            android:theme="@style/AppThemeBlue">
+
             <intent-filter>
                 <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <!-- intent-filter android:label="@string/app_name">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="www.netguard.me"
-                    android:pathPrefix="/"
-                    android:scheme="https" />
-            </intent-filter-->
 
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
-        </activity>
-
-        <activity
-            android:name=".ActivitySettings"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/menu_settings"
-            android:parentActivityName=".ActivityMain">
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActivityMain" />
         </activity>
 
         <activity
@@ -156,8 +106,8 @@
             android:label="@string/app_name"
             android:theme="@style/AppDialog">
             <intent-filter>
-                <action android:name="eu.faircode.netguard.START_PORT_FORWARD" />
-                <action android:name="eu.faircode.netguard.STOP_PORT_FORWARD" />
+                <action android:name="gg.nexplay.booster.START_PORT_FORWARD" />
+                <action android:name="gg.nexplay.booster.STOP_PORT_FORWARD" />
             </intent-filter>
         </activity>
 
@@ -174,7 +124,7 @@
             android:name=".ServiceExternal"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="eu.faircode.netguard.DOWNLOAD_HOSTS_FILE" />
+                <action android:name="gg.nexplay.booster.DOWNLOAD_HOSTS_FILE" />
             </intent-filter>
         </service>
 
@@ -231,40 +181,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
                 <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-        <receiver
-            android:name=".WidgetMain"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widgetmain" />
-        </receiver>
-
-        <receiver
-            android:name=".WidgetLockdown"
-            android:label="@string/setting_lockdown">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widgetlockdown" />
-        </receiver>
-
-        <receiver
-            android:name=".WidgetAdmin"
-            android:label="@string/app_name"
-            android:permission="eu.faircode.netguard.permission.ADMIN">
-            <intent-filter>
-                <action android:name="eu.faircode.netguard.ON" />
-                <action android:name="eu.faircode.netguard.OFF" />
-                <action android:name="eu.faircode.netguard.LOCKDOWN_ON" />
-                <action android:name="eu.faircode.netguard.LOCKDOWN_OFF" />
             </intent-filter>
         </receiver>
     </application>
